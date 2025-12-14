@@ -29,7 +29,8 @@
           installPhase = ''
             mkdir -p $out/lib
             cp libiron.so $out/lib/
-            cp -r include/iron $out/include
+            mkdir $out/include/iron
+            cp include/iron/logger.h $out/include/iron
           '';
         };
 
