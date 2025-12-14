@@ -28,7 +28,7 @@
 
           installPhase = ''
             mkdir -p $out/lib
-            cp sa $out/lib/
+            cp libiron.so $out/lib/
           '';
         };
 
