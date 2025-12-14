@@ -29,6 +29,7 @@
           installPhase = ''
             mkdir -p $out/lib
             cp libiron.so $out/lib/
+            cp -r include/iron $out/include
           '';
         };
 
