@@ -1,6 +1,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
 
 char*
 concat(const char *s1, const char *s2)
@@ -11,13 +12,23 @@ concat(const char *s1, const char *s2)
     return result;
 }
 
-#define MAGIC_NUMBER_TIME 9
+#define MAGIC_NUMBER_TIME 12
 
-const char*
-get_time()
+char*
+get_time(void)
 {
-    char* buffer = malloc(MAGIC_NUMBER_TIME * sizeof(char));
+    char tmp[MAGIC_NUMBER_TIME];
     time_t t = time(NULL);
-    strftime(buffer, sizeof(buffer), "%H:%M:%S", localtime(&t));
-    return buffer;
+
+    if (!localtime(&t))
+        return NULL;
+
+    strftime(tmp, sizeof(tmp), "[%H:%M:%S] ", localtime(&t));
+
+    char *out = malloc(strlen(tmp) + 1);
+    if (!out)
+        return NULL;
+
+    strcpy(out, tmp);
+    return out;
 }

@@ -12,7 +12,7 @@
 char*
 concat(const char* s1, const char* s2);
 
-const char*
+char*
 get_time();
 
-#endif UTIL_H
+#endif
