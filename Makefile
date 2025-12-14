@@ -11,7 +11,7 @@ $(DEST): $(SRC)
 	$(CC) -shared -o $(DEST) *.o
 
 clean:
-	rm -f $(DEST)
+	rm -f $(DEST) *.o
 
 install: $(DEST)
 	install -m755 $(DEST) /usr/local/lib64/
