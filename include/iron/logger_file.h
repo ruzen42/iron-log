@@ -1,6 +1,8 @@
 #ifndef LOGGER_FILE_H
 #define LOGGER_FILE_H
 
+#include <stdio.h>
+
 void
 log_info_to_file(const char* message, const FILE* file);
 
