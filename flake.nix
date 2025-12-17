@@ -12,8 +12,8 @@
         pkgs = import nixpkgs { inherit system; };
 
         app = pkgs.stdenv.mkDerivation {
-          pname = "ironLib";
-          version = "1.0.0";
+          pname = "iron-lib";
+          version = "1.1.0";
 
           src = ./.;
 
@@ -30,7 +30,7 @@
             mkdir -p $out/lib
             cp libiron.so $out/lib/
             mkdir -p $out/include/iron
-            cp include/iron/logger.h $out/include/iron
+            cp include/iron/{logger.h,logger_file.h} $out/include/iron
           '';
         };
 

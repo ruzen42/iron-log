@@ -2,7 +2,6 @@ CC ?= tcc
 SRC = src/*
 DEST = libiron.so
 CFLAGS = -O2 -I./include -fPIC
-LDFLAGS =
 
 all: $(DEST)
 
