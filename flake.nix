@@ -31,6 +31,7 @@
             cp libiron.so $out/lib/
             mkdir -p $out/include/iron
             cp include/iron/{logger.h,logger_file.h} $out/include/iron
+            cp
           '';
         };
 
