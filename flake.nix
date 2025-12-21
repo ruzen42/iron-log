@@ -12,7 +12,7 @@
         pkgs = import nixpkgs { inherit system; };
 
         app = pkgs.stdenv.mkDerivation {
-          pname = "iron-lib";
+          pname = "libiron";
           version = "1.1.0";
 
           src = ./.;

@@ -6,7 +6,7 @@ CFLAGS = -O2 -I./include -fPIC
 all: $(DEST)
 
 $(DEST): $(SRC)
-	$(CC) $(CFLAGS) -c $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC) -static
 	$(CC) -shared -o $(DEST) *.o
 
 clean:
