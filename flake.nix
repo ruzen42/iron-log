@@ -27,11 +27,11 @@
           '';
 
           installPhase = ''
-            mkdir -p $out/lib
+            mkdir -p $out/lib $out/include/{iron,pkg-config}
             cp libiron.so $out/lib/
-            mkdir -p $out/include/iron
+
             cp include/iron/{logger.h,logger_file.h} $out/include/iron
-            cp
+            cp libiron.pc $out/include/pkg-config/
           '';
         };
 
