@@ -14,7 +14,8 @@ clean:
 
 install: $(DEST)
 	install -m755 $(DEST) /usr/local/lib64/
-	cp include/iron/logger.h /usr/local/include
+	mkdir -p /usr/local/include/
+	cp include/iron/logger.h /usr/local/include/
 
 
 .PHONY: install all clean
