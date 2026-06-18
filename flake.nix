@@ -17,13 +17,10 @@
 
           src = ./.;
 
-          buildInputs = with pkgs; [
-            tinycc
-            gnumake
-          ];
+          buildInputs = with pkgs; [ gnumake ];
 
           buildPhase = ''
-            make CC=tcc
+            make CC=gcc CFLAGS="-Os -flto"
           '';
 
           installPhase = ''
