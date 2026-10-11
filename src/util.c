@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <time.h>
 
-char*
+char *
 concat(const char *s1, const char *s2)
 {
     char *result = malloc(strlen(s1) + strlen(s2) + 1);
@@ -14,7 +14,7 @@ concat(const char *s1, const char *s2)
 
 #define MAGIC_NUMBER_TIME 12
 
-char*
+char *
 get_time(void)
 {
     char tmp[MAGIC_NUMBER_TIME];

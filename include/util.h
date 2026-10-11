@@ -9,10 +9,7 @@
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
 
-char*
-concat(const char* s1, const char* s2);
-
-char*
-get_time();
+char *concat(const char* s1, const char* s2);
+char *get_time();
 
 #endif
