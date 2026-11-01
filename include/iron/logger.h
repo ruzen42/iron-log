@@ -2,12 +2,12 @@
 
 #include <stdio.h>
 
-#define DEFINE_LOG(name, color, level)              \
+#define DECLARE_LOG(name)              \
     void Log##name(const char *message);            \
-    void Log##name##ToFile(const char *m, FILE *f);
+    void Log##nameToFile(const char *m, FILE *f);
 
-DEFINE_LOG(Info, GREEN,  "INFO " )
-DEFINE_LOG(Error, RED,    "ERROR ")
-DEFINE_LOG(Warn, YELLOW, "WARN " )
-DEFINE_LOG(Fatal, RED,    "FATAL ")
-DEFINE_LOG(Debug, CYAN,   "DEBUG ")
+DECLARE_LOG(Info)
+DECLARE_LOG(Error)
+DECLARE_LOG(Warn)
+DECLARE_LOG(Fatal)
+DECLARE_LOG(Debug)
