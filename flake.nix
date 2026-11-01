@@ -12,23 +12,26 @@
         pkgs = import nixpkgs { inherit system; };
 
         app = pkgs.stdenv.mkDerivation {
-          pname = "libiron";
+          pname = "iron";
           version = "2.0.0";
 
           src = ./.;
 
-          buildInputs = with pkgs; [ muon samurai gcc pkg-config];
+          nativeBuildInputs = with pkgs; [ muon samurai pkg-config ];
+
+          configurePhase = ''
+            muon meson setup build --prefix=$out
+          '';
 
           buildPhase = ''
-            make CC=gcc CFLAGS="-Os -flto"
+            samu -C build
           '';
 
           installPhase = ''
-            mkdir -p $out/lib $out/include/{iron,pkg-config}
-            cp libiron.so $out/lib/
-
-            cp include/iron/{logger.h,logger_file.h} $out/include/iron
-            cp libiron.pc $out/include/pkg-config/
+            samu -C build install
+            
+            mkdir -p $out/lib/pkgconfig
+            cp libiron.pc $out/lib/pkgconfig/
           '';
         };
 
@@ -42,7 +45,6 @@
             samurai
             pkg-config
           ];
-
         };
       }
     );

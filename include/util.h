@@ -9,6 +9,6 @@
 #define RESET   "\x1b[0m"
 #define TIME_BUF_SIZE 16
 
-char *concat(const char* s1, const char* s2);
-char *get_time_r(char *buf, size_t n);
+char *Concat(const char* s1, const char* s2);
+char *GetTimeR(char *buf, size_t n);
 

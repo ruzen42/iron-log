@@ -4,7 +4,7 @@
 #include <time.h>
 
 char *
-concat(const char *s1, const char *s2)
+Concat(const char *s1, const char *s2)
 {
     if (!s1 || !s2) return NULL;
     size_t l1 = strlen(s1), l2 = strlen(s2);
@@ -18,7 +18,7 @@ concat(const char *s1, const char *s2)
 #define MAGIC_NUMBER_TIME 12
 
 char *
-get_time(char *buf, size_t n)
+GetTimeR(char *buf, size_t n)
 {
     time_t t = time(NULL);
     struct tm tm;

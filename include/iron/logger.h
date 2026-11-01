@@ -1,12 +1,11 @@
 #pragma once
 
-void log_info(char* message);
+#define DEFINE_LOG(name, color, level)              \
+    void Log##name(const char *message);            \
+    void Log##name##Tofile(const char *m, FILE *f);
 
-void log_error(char* message);
-
-void log_fatal(char* message);
-
-void log_warn(char* message);
-
-void log_debug(char* message);
-
+DEFINE_LOG(Info, GREEN,  "INFO " )
+DEFINE_log(Error, RED,    "ERROR ")
+DEFINE_LOG(Warn, YELLOW, "WARN " )
+DEFINE_LOG(Fatal, RED,    "FATAL ")
+DEFINE_LOG(Debug, CYAN,   "DEBUG ")

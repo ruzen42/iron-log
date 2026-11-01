@@ -8,26 +8,26 @@
 static void
 LogInternal(FILE *out, const char *color, const char *level, const char *message)
 {
-    char timebuf[TIME_BUF_SIZE] ;
-    if (!getTimeR(timebuf, sizeof timebuf)) return;
+    char timebuf[TIME_BUF_SIZE];
+    if (!GetTimeR(timebuf, sizeof timebuf)) return;
     
     if (color) {
         fprintf(out, "%s%s%s%s%s", timebuf, color, level, RESET, message);
     } else {
-        fprintf(out, "%s%s%s%s", timebuf, level, message)
+        fprintf(out, "%s%s%s", timebuf, level, message); 
     }
 }
 
 #define DEFINE_LOG(name, out, color, level)              \
-    void 
-    Log##name(const char *message)  \
-    {               \
-        log_internal(out, color, level, message);        \
+    void                                                 \
+    Log##name(const char *message)                       \
+    {                                                    \
+        LogInternal(out, color, level, message);         \
     }                                                    \
-    void 
-    Log##name##Tofile(const char *m, FILE *f)  \
-    {  \
-        LogInternal(f, NULL, level, m);                 \
+    void                                                 \
+    Log##name##Tofile(const char *m, FILE *f)            \
+    {                                                    \
+        LogInternal(f, NULL, level, m);                  \
     }
 
 DEFINE_LOG(Info,  stdout, GREEN,  "INFO " )
