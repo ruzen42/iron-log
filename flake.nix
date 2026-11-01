@@ -31,7 +31,7 @@
             samu -C build install
             
             mkdir -p $out/lib/pkgconfig
-            cp libiron.pc $out/lib/pkgconfig/
+            cp iron.pc $out/lib/pkgconfig/
           '';
         };
 
