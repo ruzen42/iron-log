@@ -6,29 +6,23 @@
 char *
 concat(const char *s1, const char *s2)
 {
-    char *result = malloc(strlen(s1) + strlen(s2) + 1);
-    strcpy(result, s1);
-    strcat(result, s2);
-    return result;
+    if (!s1 || !s2) return NULL;
+    size_t l1 = strlen(s1), l2 = strlen(s2);
+    char *r = malloc(l1 + l2 + 1);
+    if (!r) return NULL;
+    memcpy(r, s1, l1);
+    memcpy(r + l1, s2, l2 + 1);   
+    return r;
 }
 
 #define MAGIC_NUMBER_TIME 12
 
 char *
-get_time(void)
+get_time(char *buf, size_t n)
 {
-    char tmp[MAGIC_NUMBER_TIME];
     time_t t = time(NULL);
-
-    if (!localtime(&t))
-        return NULL;
-
-    strftime(tmp, sizeof(tmp), "[%H:%M:%S] ", localtime(&t));
-
-    char *out = malloc(strlen(tmp) + 1);
-    if (!out)
-        return NULL;
-
-    strcpy(out, tmp);
-    return out;
+    struct tm tm;
+    if (!localtime_r(&t, &tm)) return NULL;
+    if (!strftime(buf, n, "[%H:%M:%S] ", &tm)) return NULL;
+    return buf;
 }

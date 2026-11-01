@@ -7,13 +7,12 @@ It does one thing: print log messages with time and level.
 No dependencies (except std).
 No configuration files.
 No dynamic features.
-Just C.
 
 Features
 --------
 - Simple API
 - Colored log levels (ERROR, WARN, INFO, DEBUG, FATAL)
-- POSIX-friendly
+- POSIX-friendly (without Windows support)
 - Small codebase
 - Easy to embed into projects
 
@@ -34,11 +33,11 @@ Include the header:
 
 Log messages:
 
-    log_info("server started");
-    log_warn("low memory");
-    log_error("failed to open file");
-    log_debug("value = 42");
-    log_fatal("unrecoverable error");
+    LogInfo("server started");
+    LogWarn("low memory");
+    LogError("failed to open file");
+    LogDebug("value = 42");
+    LogFatal("unrecoverable error");
 
 Output format:
 
@@ -68,12 +67,13 @@ Or just copy logger.c and logger.h into your project.
 Design
 ------
 
-clog follows the Unix philosophy:
+libiron follows the SUCK philosophy:
 
 - simple
 - explicit
 - readable
 - hackable
+- unix 
 
 The code is meant to be read and modified.
 If you need more features, add them yourself.

@@ -1,5 +1,5 @@
 {
-  description = "iron - simple logger library for C";
+  description = "iron - stupid logger library for C";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
@@ -13,11 +13,11 @@
 
         app = pkgs.stdenv.mkDerivation {
           pname = "libiron";
-          version = "1.1.0";
+          version = "2.0.0";
 
           src = ./.;
 
-          buildInputs = with pkgs; [ gnumake ];
+          buildInputs = with pkgs; [ muon samurai gcc pkg-config];
 
           buildPhase = ''
             make CC=gcc CFLAGS="-Os -flto"
@@ -37,8 +37,10 @@
 
         devShells.default = pkgs.mkShell {
           buildInputs = with pkgs; [
-            tinycc
-            gnumake
+            gcc 
+            muon 
+            samurai
+            pkg-config
           ];
 
         };

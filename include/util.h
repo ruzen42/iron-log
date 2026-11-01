@@ -1,5 +1,4 @@
-#ifndef UTIL_H
-#define UTIL_H
+#pragma once
 
 #define RED     "\x1b[31m"
 #define GREEN   "\x1b[32m"
@@ -8,8 +7,8 @@
 #define MAGENTA "\x1b[35m"
 #define CYAN    "\x1b[36m"
 #define RESET   "\x1b[0m"
+#define TIME_BUF_SIZE 16
 
 char *concat(const char* s1, const char* s2);
-char *get_time();
+char *get_time_r(char *buf, size_t n);
 
-#endif
