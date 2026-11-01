@@ -12,9 +12,9 @@ LogInternal(FILE *out, const char *color, const char *level, const char *message
     if (!GetTimeR(timebuf, sizeof timebuf)) return;
     
     if (color) {
-        fprintf(out, "%s%s%s%s%s", timebuf, color, level, RESET, message);
+        fprintf(out, "%s%s%s%s%s\n", timebuf, color, level, RESET, message);
     } else {
-        fprintf(out, "%s%s%s", timebuf, level, message); 
+        fprintf(out, "%s%s%s\n", timebuf, level, message); 
     }
 }
 
